@@ -1,0 +1,86 @@
+Api of backend
+-student  registration
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john@example.com",
+  "password": "Test1234"
+}
+-login
+/api/auth/login
+{
+  "email": "john@example.com",
+  "password": "Test1234"
+}
+-/api/auth/logout
+-/api/auth/send-verify-otp
+{
+  "userId": "replace_with_user_id"
+}
+-verify-account
+{
+  "userId": "replace_with_user_id"
+}
+-. Check Authentication
+GET /api/auth/is-auth
+-/api/auth/send-reset-otp
+{
+  "email": "john@example.com"
+}
+-POST /api/auth/reset-password
+{
+  "email": "john@example.com",
+  "otp": "123456",
+  "newPassword": "NewPass1234"
+}
+-POST /api/auth/resend-verify-otp
+{
+  "userId": "replace_with_user_id"
+}
+2, head-counselor
+/api/head-counselor/register
+{first_name: John
+last_name: Doe
+email: johndoe@example.com
+password: securepassword
+qualifications: M.A Psychology, B.A Psychology
+specialization: Depression, Anxiety
+certification: <UPLOAD FILE>}
+
+-approve/reject
+PUT /api/head-counselor/handle-counselor/:counselorId
+{
+  "action": "approve" // or "reject"
+}
+-get all pending counselor
+/api/head-counselor/pending
+Authorization: Bearer <JWT_TOKEN>
+-Deactivate a User
+PUT/api/head-counselor/deactivate/:userId
+Authorization: Bearer <JWT_TOKEN>
+-availablity
+POST /api/availability/create
+Headers:
+  Authorization: Bearer <your_token>
+Body (JSON):
+{
+  "counselorId": "662fe9a11cdb4ae7fa3be929",
+  "date": "2025-05-02",
+  "start_time": "10:00 AM",
+  "end_time": "11:00 AM"
+}
+GET /api/availability/662fe9a11cdb4ae7fa3be929
+Headers:
+  Authorization: Bearer <your_token>
+-PUT /api/availability/<availability_id>
+Headers:
+  Authorization: Bearer <your_token>
+Body (JSON):
+{
+  "start_time": "11:00 AM",
+  "end_time": "12:00 PM"
+}
+DELETE /api/availability/<availability_id>
+Headers:
+  Authorization: Bearer <your_token>
+
