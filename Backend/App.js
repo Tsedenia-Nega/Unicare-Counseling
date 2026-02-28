@@ -48,12 +48,6 @@ socketHandler(io);
 app.use(express.urlencoded({ extended: true }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// app.use("/uploads", express.static("uploads"));
-// app.use(
-//   "/uploads/resources",
-//   express.static(path.join(__dirname, "uploads/resources"))
-// );
-const path = require("path");
 
 // 1. Root uploads folder
 app.use(
