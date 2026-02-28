@@ -48,10 +48,37 @@ socketHandler(io);
 app.use(express.urlencoded({ extended: true }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use("/uploads", express.static("uploads"));
+// app.use("/uploads", express.static("uploads"));
+// app.use(
+//   "/uploads/resources",
+//   express.static(path.join(__dirname, "uploads/resources"))
+// );
+const path = require("path");
+
+// 1. Root uploads folder
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"), {
+    setHeaders: (res) => {
+      res.set(
+        "Access-Control-Allow-Origin",
+        frontendUrl,
+      );
+    },
+  }),
+);
+
+// 2. Resources sub-folder
 app.use(
   "/uploads/resources",
-  express.static(path.join(__dirname, "uploads/resources"))
+  express.static(path.join(__dirname, "uploads/resources"), {
+    setHeaders: (res) => {
+      res.set(
+        "Access-Control-Allow-Origin",
+        frontendUrl,
+      );
+    },
+  }),
 );
 app.use("/api/moods", moodRoutes);
 app.use("/api/recommendations", recommendationRoutes);
