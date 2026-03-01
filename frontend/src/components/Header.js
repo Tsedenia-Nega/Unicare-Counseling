@@ -41,7 +41,7 @@ const socketURL = process.env.REACT_APP_SOCKET_URL;
           className="flex items-center space-x-2 cursor-pointer"
           onClick={() => handleNavigation("/")}
         >
-          <img src="/images/logo.png" alt="logo" className="h-10 md:h-12" />
+          <img src="/Images/logo.png" alt="logo" className="h-10 md:h-12" />
           <span className="text-green-900 font-bold text-2xl md:text-3xl">
             Unicare
           </span>

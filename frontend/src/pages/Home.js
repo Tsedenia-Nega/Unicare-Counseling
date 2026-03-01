@@ -13,7 +13,7 @@ const Home = () => {
         {/* Left: Background image with content */}
         <div
           className="flex-1 relative flex flex-col justify-start pt-32 md:justify-center items-center text-center bg-cover bg-center "
-          style={{ backgroundImage: "url('/images/home3.png')" }}
+          style={{ backgroundImage: "url('/Images/home3.png')" }}
         >
           {/* Overlay for contrast */}
           <div className="absolute inset-0 bg-white/40 z-0"></div>
